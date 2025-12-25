@@ -1,0 +1,66 @@
+{
+  "names": {
+    "short": "A & B",
+    "full": "Arda & Buse",
+    "footer": "Arda",
+    "footer_partner": "Buse"
+  },
+  "date": {
+    "start": "2023-02-14",
+    "display": "14 Şubat 2023"
+  },
+  "hero": {
+    "title": "Her Anım <br><span class=\"text-transparent bg-clip-text bg-gradient-to-r from-love-400 to-indigo-400\">Seninle Güzel</span>",
+    "description": "Seninle geçen her saniye, ömrümün en değerli hazinesi. Birlikte yazdığımız bu hikaye hiç bitmesin.",
+    "badge": "Sonsuza Dek Beraber",
+    "image_main": "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=664&auto=format&fit=crop",
+    "image_secondary": "https://images.unsplash.com/photo-1621112904887-419379ce6824?q=80&w=2674&auto=format&fit=crop"
+  },
+  "notes": [
+    {
+      "icon": "💌",
+      "color": "love",
+      "title": "İlk Bakış",
+      "text": "Seni ilk gördüğüm anı dün gibi hatırlıyorum. O an kalbimin ritminin değiştiğini hissetmiştim. Sanki dünya durmuştu.",
+      "date": "14.02.2023"
+    },
+    {
+      "icon": "✨",
+      "color": "indigo",
+      "title": "Senin Gülüşün",
+      "text": "Gülüşün benim için dünyanın en güzel manzarası. Her güldüğünde içimde çiçekler açıyor, tüm dertlerimi unutuyorum.",
+      "date": "Her gün"
+    },
+    {
+      "icon": "🌙",
+      "color": "purple",
+      "title": "Geleceğimiz",
+      "text": "Seninle yaşlanmak, her sabah seninle uyanmak en büyük hayalim. Seni çok seviyorum.",
+      "date": "Sonsuza dek"
+    }
+  ],
+  "moments": [
+    {
+      "image": "https://plus.unsplash.com/premium_photo-1700353612860-bd8ab8d71f05?q=80&w=2070&auto=format&fit=crop",
+      "caption": "Tatilimizden"
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1496602910407-bacda74a0fe4?w=900&auto=format&fit=crop",
+      "caption": ""
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1000&auto=format&fit=crop",
+      "caption": ""
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1621621667797-e06afc217fb0?q=80&w=2670&auto=format&fit=crop",
+      "caption": "En Sevdiğimiz Yer"
+    }
+  ],
+  "music": {
+    "song": "Olmazsan Olmaz",
+    "artist": "Güliz Ayla",
+    "src": "public/sound/olmazsanolmazgulizayla.mp3",
+    "cover": "https://i.scdn.co/image/ab67616d0000b2739089e3a2eb0e176d5215f7a4"
+  }
+}
