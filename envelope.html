@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sana Olan Sevgim</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Outfit:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'handwriting': ['"Dancing Script"', 'cursive'],
+                        'sans': ['"Outfit"', 'sans-serif'],
+                    },
+                    colors: {
+                        'love-pink': '#ff7eb3',
+                        'love-red': '#ff758c',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'heartbeat': 'heartbeat 1.5s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        heartbeat: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .envelope-container {
+            perspective: 1000px;
+        }
+
+        .envelope {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            margin: 0 auto;
+            background-color: #f7fafc;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transform-style: preserve-3d;
+            transition: transform 0.6s ease;
+        }
+
+        .envelope:hover {
+            transform: translateY(-5px);
+        }
+
+        .flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-top: 110px solid #e2aeba;
+            transform-origin: top;
+            z-index: 5;
+            transition: transform 0.6s ease 0.6s, z-index 0.2s 0.6s;
+        }
+
+        .envelope.open .flap {
+            transform: rotateX(180deg);
+            z-index: 1;
+            transition: transform 0.6s ease 0s, z-index 0.1s linear 0.6s;
+        }
+
+        .pocket {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 110px solid #fecaca;
+            z-index: 4;
+        }
+
+        .pocket-left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-top: 100px solid transparent;
+            border-bottom: 100px solid transparent;
+            border-left: 140px solid #f9a8d4;
+            z-index: 3;
+        }
+
+        .pocket-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-top: 100px solid transparent;
+            border-bottom: 100px solid transparent;
+            border-right: 140px solid #f9a8d4;
+            z-index: 3;
+        }
+
+        .letter {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 80%;
+            background: white;
+            padding: 15px;
+            z-index: 2;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: bottom 0.6s ease, transform 0.6s ease;
+        }
+
+        .envelope.open .letter {
+            bottom: 60px;
+            transform: translateX(-50%) translateY(-30px);
+            z-index: 2;
+            transition: bottom 0.6s ease 0.6s, transform 0.6s ease 0.6s;
+        }
+
+        .falling-element {
+            position: absolute;
+            top: -10vh;
+            pointer-events: none;
+            z-index: 0;
+            animation-name: fall;
+            animation-timing-function: linear;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-gradient-to-br from-red-50 to-pink-100 min-h-screen flex flex-col items-center justify-center overflow-hidden">
+
+    <div id="background-container" class="fixed inset-0 w-full h-full pointer-events-none"></div>
+
+    <div class="relative z-10 text-center p-4 w-full max-w-lg">
+        <h1 class="text-4xl md:text-5xl font-handwriting text-pink-600 mb-12 drop-shadow-sm animate-float">Sana Bir
+            Notum Var...</h1>
+
+        <div class="envelope-container flex justify-center py-10" onclick="toggleEnvelope()">
+            <div id="clickEnvelope" class="envelope cursor-pointer">
+                <div class="flap"></div>
+                <div class="letter rounded-sm border border-pink-100">
+                    <p class="font-handwriting text-xl text-gray-700">Canım Sevgilim...</p>
+                    <div class="mt-2 text-pink-400 text-sm">(Okumak için tıkla)</div>
+                </div>
+                <div class="pocket"></div>
+                <div class="pocket-left"></div>
+                <div class="pocket-right"></div>
+            </div>
+        </div>
+
+        <p class="mt-8 text-gray-500 font-sans text-sm tracking-wide">Mektubu açmak için üzerine dokun</p>
+    </div>
+
+    <div id="letterModal"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-700">
+        <div id="modalContent"
+            class="bg-white/95 p-8 md:p-12 rounded-xl shadow-2xl max-w-lg w-11/12 mx-4 transform scale-90 transition-transform duration-500 border border-pink-100 relative overflow-hidden">
+
+            <div
+                class="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-pink-200 rounded-tl-xl -mt-2 -ml-2">
+            </div>
+            <div
+                class="absolute bottom-0 right-0 w-16 h-16 border-b-4 border-r-4 border-pink-200 rounded-br-xl -mb-2 -mr-2">
+            </div>
+
+            <button onclick="closeModal()"
+                class="absolute top-4 right-4 text-gray-400 hover:text-pink-500 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <div class="text-center font-handwriting">
+                <div class="text-4xl text-pink-500 mb-6 animate-heartbeat">❤️</div>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Biriciğim,</h2>
+                <div class="text-xl md:text-2xl text-gray-600 leading-relaxed text-justify">
+                    <p class="mb-4">
+                        Seninle geçen her an, hayatımın en güzel şiiri gibi. Gözlerin güneşim, gülüşün en sevdiğim
+                        mevsim...
+                    </p>
+                    <p class="mb-4">
+                        Bazen kelimeler yetersiz kalıyor içimdeki sevgiyi anlatmaya. Ama bilmeni isterim ki, sen benim
+                        başıma gelen en güzel şeysin. İyi ki varsın, iyi ki benimsin. Seni çok seviyorum.
+                    </p>
+                    <p class="text-right mt-6 text-pink-600 font-bold">- Seni Çok Seven</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const elements = ['🌸', '💖', '🌹', '✨', '🦋', '💐', '🌷', '❤️'];
+        const container = document.getElementById('background-container');
+        let animationInterval = null;
+
+        function createFallingElement() {
+            const el = document.createElement('div');
+            el.classList.add('falling-element');
+            el.innerText = elements[Math.floor(Math.random() * elements.length)];
+
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.fontSize = (Math.random() * 20 + 20) + 'px';
+
+            const duration = Math.random() * 3 + 4;
+            el.style.animationDuration = duration + 's';
+
+            container.appendChild(el);
+
+            setTimeout(() => {
+                el.remove();
+            }, duration * 1000);
+        }
+
+        function toggleEnvelope() {
+            const envelope = document.getElementById('clickEnvelope');
+            const modal = document.getElementById('letterModal');
+            const modalContent = document.getElementById('modalContent');
+
+            if (!envelope.classList.contains('open')) {
+                envelope.classList.add('open');
+
+                if (!animationInterval) {
+                    animationInterval = setInterval(createFallingElement, 400);
+                    for (let i = 0; i < 5; i++) createFallingElement();
+                }
+
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0', 'pointer-events-none');
+                    modalContent.classList.remove('scale-90');
+                    modalContent.classList.add('scale-100');
+                }, 1400);
+            }
+        }
+
+        function closeModal() {
+            const envelope = document.getElementById('clickEnvelope');
+            const modal = document.getElementById('letterModal');
+            const modalContent = document.getElementById('modalContent');
+
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-90');
+
+            setTimeout(() => {
+                envelope.classList.remove('open');
+            }, 500);
+        }
+    </script>
+</body>
+
+</html>
