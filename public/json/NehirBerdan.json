@@ -1,0 +1,66 @@
+{
+    "names": {
+        "short": "N & B",
+        "full": "Nehir & Berdan",
+        "footer": "Nehir",
+        "footer_partner": "Berdan"
+    },
+    "date": {
+        "start": "2024-09-23",
+        "display": "23 Eylül 2024"
+    },
+    "hero": {
+        "title": "Her Anım <br><span class=\"text-transparent bg-clip-text bg-gradient-to-r from-love-400 to-indigo-400\">Seninle Güzel</span>",
+        "description": "Seninle geçen her saniye, ömrümün en değerli hazinesi. Birlikte yazdığımız bu hikaye hiç bitmesin.",
+        "badge": "Sonsuza Dek Beraber",
+        "image_main": "https://orhancodestudio.github.io/products/public/NB_1.jpeg",
+        "image_secondary": "https://orhancodestudio.github.io/products/public/NB_2.jpeg"
+    },
+    "notes": [
+        {
+            "icon": "✨",
+            "color": "love",
+            "title": "Gülüşünde gizlenmiş bütün yıldızlar",
+            "text": "Sen benim gökyüzümdeki en parlak yıldızsın; karanlık gecelerimi aydınlatan tek ışıksın.",
+            "date": "Her an"
+        },
+        {
+            "icon": "🫀",
+            "color": "indigo",
+            "title": "Kalbimin sahibi gözümün nuru",
+            "text": "Canımın içi yokluğun beni zora sokuyor. Daha önce böyle bir hüznü tatmamıştım, böyle bir sızı doldurmamıştı yüreğimi. Böylesine üzülmemiş, gecenin karanlığıyla mutsuzluğa boğulmamıştım.",
+            "date": "Her gün"
+        },
+        {
+            "icon": "🤍",
+            "color": "purple",
+            "title": "En değerli varlığım en sevdiğim çiçeğim",
+            "text": "Sana olan sevgimi anlatmaya hiçbir sözcük yetemez. Bu öyle kuvvetli bir sevgi ki, her an seni yaşamak, seninle yaşamak, seninle yaşlanmak istiyorum. Beni yalnızlığımdan sıyırıp mutlu günlere kavuşturan sensin, yaşadığımın farkına vardıran sensin, huzurun diğer adı sensin. Biricik aşkım, gözlerin kadar parlak olmasalar da seninle yıldızları izlemek, dünyanın en huzurlu şeyi.",
+            "date": "Sonsuza dek"
+        }
+    ],
+    "moments": [
+        {
+            "image": "https://orhancodestudio.github.io/products/public/NB_6.jpeg",
+            "caption": ""
+        },
+        {
+            "image": "https://orhancodestudio.github.io/products/public/NB_4.jpeg",
+            "caption": ""
+        },
+        {
+            "image": "https://orhancodestudio.github.io/products/public/NB_5.jpeg",
+            "caption": ""
+        },
+        {
+            "image": "https://orhancodestudio.github.io/products/public/NB_3.jpeg",
+            "caption": ""
+        }
+    ],
+    "music": {
+        "song": "Benimle Kayboldun",
+        "artist": "Kaan Boşnak",
+        "src": "public/sound/kaanbosnakbenimlekayboldun.mp3",
+        "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUSw8JgB27HtDeG7y4-FP-X2tt6rbts4KQ0Q&s"
+    }
+}
